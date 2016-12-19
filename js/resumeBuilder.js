@@ -1,3 +1,230 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
+//bio section---
+var bio = {
+    "name" : "Abha Kabra",
+    "role" : "Web-developer",
+    "contacts" :[
+         {   "mobile" : "99239-49491" ,
+            "email" : "kabraabha@gmail.com ",
+            "github" : "https://github.com/abha08 ",
+            "linkedIn": "www.linkedin.com/in/abha-kabra ",
+            "location" : "Jaipur(Rajasthan)   "
+        }
+    ],
+    "welcomeMeassage" : "I am an enthusiastic and hard-working person.",
+    "skills":["Front-end developer","Programmer","Writer","Sketcher"],
+    "biopic":"images/biopic.jpg"
+}
+
+    var formattedName = HTMLheaderName.replace("%data%",bio.name);
+    var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
+    $("#header").append(formattedName,formattedRole);
+
+    //$("#topContacts").append(HTMLcontactGeneric);
+bio.display = function(){bio.contacts.forEach(function(contact){
+
+    var formattedMobile = HTMLmobile.replace("%data%",contact.mobile);
+    $("#header").append(formattedMobile);
+
+    var formattedEmail = HTMLemail.replace("%data%",contact.email);
+    $("#header").append(formattedEmail);
+
+    var formattedGithub = HTMLgithub.replace("%data%",contact.github);
+    $("#header").append(formattedGithub);
+
+     var formattedLinkedIn = HTMLlinkedIn.replace("%data%",contact.linkedIn);
+    $("#header").append(formattedLinkedIn);
+
+     var formattedLocation = HTMLlocation.replace("%data%",contact.location);
+    $("#header").append(formattedLocation);
+
+    });
+
+    var formattedPic = HTMLbioPic.replace("%data%",bio.biopic);
+    $("#header").append(formattedPic);
+
+    var formattedMessage = HTMLwelcomeMsg.replace("%data%",bio.welcomeMeassage);
+    $("#header").append(formattedMessage);
+
+    $("#header").append(HTMLskillsStart);
+    var formattedSkills = HTMLskills.replace("%data%",bio.skills[0]);
+    $("#header").append(formattedSkills);
+    var formattedSkills = HTMLskills.replace("%data%",bio.skills[1]);
+    $("#header").append(formattedSkills);
+    var formattedSkills = HTMLskills.replace("%data%",bio.skills[2]);
+    $("#header").append(formattedSkills);
+    var formattedSkills = HTMLskills.replace("%data%",bio.skills[3]);
+    $("#header").append(formattedSkills);
+}
+bio.display();
+//Work Experiences----
+var work = {
+  "jobs": [
+    {
+      "employer": "Udacity",
+      "title": "Course Developer",
+      "location": "Mountain View, CA",
+      "dates": "Feb 2014 - Current",
+      "description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
+    },
+    {
+      "employer": "LearnBIG",
+      "title": "Software Engineer",
+      "location": "Seattle, WA",
+      "dates": "May 2013 - Jan 2014",
+      "description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
+    }
+
+  ]
+}
+work.display = function(){work.jobs.forEach(function(job){
+
+    $("#workExperience").append(HTMLworkStart);
+
+    var formattedEmployer = HTMLworkEmployer.replace("%data%",job.employer);
+    var formattedTitle = HTMLworkTitle.replace("%data%",job.title);
+
+    var formattedEmployerTitle = formattedEmployer + formattedTitle;
+    $(".work-entry:last").append(formattedEmployerTitle);
+
+    var formattedDates = HTMLworkDates.replace("%data%",job.dates);
+    $(".work-entry:last").append(formattedDates);
+
+     var formattedLoc = HTMLworkLocation.replace("%data%",job.location);
+    $(".work-entry:last").append(formattedLoc);
+
+    var formattedDescription = HTMLworkDescription.replace("%data%",job.description);
+    $(".work-entry:last").append(formattedDescription);
+});
+}
+work.display();
+
+var projects = {
+
+    project:[
+       { "title" : "Online Portfolio",
+        "dates" : "2016",
+        "description" : "Builded a portfolio using css and html concepts through Udacity Nanodegree.",
+        "images" : "images/project1.png"
+        }
+    ]
+}
+projects.display = function(){projects.project.forEach(function(exp){
+    $("#projects").append(HTMLprojectStart);
+    var formattedprojecttitle = HTMLprojectTitle.replace("%data%",exp.title);
+    $(".project-entry:last").append(formattedprojecttitle);
+
+    var formattedDate = HTMLprojectDates.replace("%data%",exp.dates);
+    $(".project-entry:last").append(formattedDate);
+
+    var formattedDescriptn = HTMLprojectDescription.replace("%data%",exp.description);
+    $(".project-entry:last").append(formattedDescriptn);
+
+    var formattedImg = HTMLprojectImage.replace("%data%",exp.images);
+    $(".project-entry:last").append(formattedImg);
+    });
+}
+projects.display();
+
+var education = {
+    "schools":[
+        {
+            "name" : "Central Academy",
+            "location" : "Bhilwara",
+            "degree" : "X",
+            "majors" : ["Science","Maths","C"],
+            "dates"  : "2010-11",
+            "url" : "www.CentralAcademy.com"
+        },
+        {
+           "name" : "Central Academy",
+            "location" : "Bhilwara",
+            "degree" : "XI-XII",
+            "majors" : ["Science","Maths","C++"],
+            "dates"  : "2012-14",
+            "url" : "www.CentralAcademy.com"
+        },
+        {
+           "name" : "Jecrc College",
+            "location" : "Jaipur",
+            "degree" : "B.Tech",
+            "majors" : ["Computer Science"],
+            "dates"  : "2014-18",
+            "url" : "www.jecrcFoundation.com"
+        }
+
+    ],
+    "onlineCourses" :[
+        {
+             "title":"Frontend NanoDegree",
+            "school" : "Udacity online portal",
+            "dates" : "2016",
+            "url" : "www.udacity.com"
+        }
+
+    ]
+}
+ education.display = function(){
+    education.schools.forEach(function(school){
+
+        $("#education").append(HTMLschoolStart);
+
+        var formattedSchoolName = HTMLschoolName.replace("%data%",school.name);
+        $(".education-entry:last").append(formattedSchoolName);
+
+        var formattedSchoolDegree = HTMLschoolDegree.replace("%data%",school.degree);
+        $(".education-entry:last").append(formattedSchoolDegree);
+
+        var formattedSchoolDates = HTMLschoolDates.replace("%data%",school.dates);
+        $(".education-entry:last").append(formattedSchoolDates);
+
+        var formattedSchoolLocation = HTMLschoolLocation.replace("%data%",school.location);
+        $(".education-entry:last").append(formattedSchoolLocation);
+
+        var formattedSchoolMajors = HTMLschoolMajor.replace("%data%",school.majors);
+        $(".education-entry:last").append(formattedSchoolMajors);
+    });
+
+  education.onlineCourses.forEach(function(course){
+            $(".education-entry:last").append(HTMLonlineClasses);
+        var formattedCourseName = HTMLonlineTitle.replace("%data%",course.title);
+        $(".education-entry:last").append(formattedCourseName);
+
+        var formattedCourseSchool = HTMLonlineSchool.replace("%data%",course.school);
+        $(".education-entry:last").append(formattedCourseSchool);
+
+        var formattedCourseDates = HTMLonlineDates.replace("%data%",course.dates);
+        $(".education-entry:last").append(formattedCourseDates);
+
+        var formattedCourseLocation = HTMLonlineURL.replace("%data%",course.url);
+        $(".education-entry:last").append(formattedCourseLocation);
+    });
+ }
+ education.display();
+
+ $("#mapDiv").append(googleMap);
+
+ var footer = {
+
+        "mobile" : "99239-49491" ,
+        "email" : "kabraabha@gmail.com ",
+       "github" : "https://github.com/abha08 ",
+        "linkedIn": "www.linkedin.com/in/abha-kabra ",
+        "location" : "Jaipur(Rajasthan)   "
+     }
+     var formattedMobile = HTMLmobile.replace("%data%",footer.mobile);
+    $("#footerContacts").append(formattedMobile);
+
+    var formattedEmail = HTMLemail.replace("%data%",footer.email);
+    $("#footerContacts").append(formattedEmail);
+
+    var formattedGithub = HTMLgithub.replace("%data%",footer.github);
+    $("#footerContacts").append(formattedGithub);
+
+     var formattedLinkedIn = HTMLlinkedIn.replace("%data%",footer.linkedIn);
+    $("#footerContacts").append(formattedLinkedIn);
+
+     var formattedLocation = HTMLlocation.replace("%data%",footer.location);
+    $("#footerContacts").append(formattedLocation);
