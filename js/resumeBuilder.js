@@ -97,29 +97,32 @@ work.display();
 //project div---
 var projects = {
 
-    projects: {
+    projects: [{
         "title": "Online Portfolio",
         "dates": "2016",
         "description": "Builded a portfolio using css and html concepts through Udacity Nanodegree.",
         "images": ["images/project1.png", "images/project1.png"]
-    }
+    }]
 };
 projects.display = function() {
+  projects.projects.forEach(function(project) {
     $("#projects").append(HTMLprojectStart);
-    var formattedprojecttitle = HTMLprojectTitle.replace(data, projects.projects.title);
+    var formattedprojecttitle = HTMLprojectTitle.replace(data, project.title);
     $(".project-entry:last").append(formattedprojecttitle);
 
-    var formattedDate = HTMLprojectDates.replace(data, projects.projects.dates);
+    var formattedDate = HTMLprojectDates.replace(data, project.dates);
     $(".project-entry:last").append(formattedDate);
 
-    var formattedDescriptn = HTMLprojectDescription.replace(data, projects.projects.description);
+    var formattedDescriptn = HTMLprojectDescription.replace(data, project.description);
     $(".project-entry:last").append(formattedDescriptn);
 
-    projects.projects.images.forEach(function(exp) {
+    project.images.forEach(function(exp) {
         var formattedImg = HTMLprojectImage.replace(data, exp);
         $(".project-entry:last").append(formattedImg);
-    });
+    })
+  })
 };
+
 projects.display();
 
 //education div--
